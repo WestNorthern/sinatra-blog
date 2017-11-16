@@ -48,9 +48,16 @@
 		</div>
 		<button type="submit" class="btn btn-primary">Update Profile</button>
 		<button type="button" class="btn btn-primary" id="nvm-edit-profile">Nevermind...</button>
-		<button type="button" class="btn btn-primary" id="change-password">Change Password</button>
+		<button type="button" class="btn btn-primary change-password" id="change-password">Change Password</button>
 		<button type="button" class="btn btn-primary" id="delete-profile">Delete Profile</button>
   </form>
+  <div class="change-password-box">
+		<form action="/change-password" method="POST">
+			<input type="password" class="new_password" name="new_password">
+			<button type="submit" class="btn btn-primary">Change</button>
+			<button type="button" class="btn btn-primary nvm-change-password">Nevermind</button>
+		</form>
+	</div>
 </div>
 
 <% end %>

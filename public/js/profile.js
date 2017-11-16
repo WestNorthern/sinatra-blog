@@ -12,4 +12,14 @@ $(function() {
 		$('.profile-bubble').show();
 	});
 
+	$('.change-password').click(function(){
+		$('.change-password-box').show();
+		$('.change-password').hide();
+	});
+
+	$('.nvm-change-password').click(function(){
+		$('.change-password-box').hide();
+		$('.change-password').show();
+	});
+
 });

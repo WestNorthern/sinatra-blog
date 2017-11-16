@@ -118,6 +118,15 @@ post '/edit-post' do
 	erb :home
 end
 
+post '/change-password' do
+	@user = current_user
+	puts "This is what you're looking for"
+	p params
+	@user.update(password: params[:new_password])
+	@user.save
+	redirect '/profile'
+end
+
 
 post '/save-post' do
 	@user = current_user
