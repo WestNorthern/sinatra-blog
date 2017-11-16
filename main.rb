@@ -166,3 +166,10 @@ post '/search_for_user' do
 	erb :search_results, layout: false
 end
 
+get '/delete-user' do
+	@user = current_user
+	@user.destroy
+	session[:user_id] = nil
+	redirect '/login'
+end
+
