@@ -294,3 +294,11 @@ color:ghostwhite;
 .post-display-buttons {
 	color: ghostwhite;
 }
+
+.change-password-box {
+	display: none;
+	position: absolute;
+	top: 85%;
+	left: 20%;
+	width: 70%;
+}

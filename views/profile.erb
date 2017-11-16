@@ -18,7 +18,9 @@
 	<div class="profile-name"><%= @user.name %></div>
 	<br><br>
 	<p>You have been a part of Interrobang since <%= @user.created_at.to_formatted_s(:short) %></p>
+	<% if @user.posts.last != nil %>
 	<p>Your last post was at <%= @user.posts.last.created_at.to_formatted_s(:short) %></p>
+	<% end %>
 	<hr>
 	<div class="bio-display"><%= @user.bio %></div>
 	<button class="btn btn-primary" id="edit-profile-button">Edit Profile</button>
@@ -46,9 +48,16 @@
 		</div>
 		<button type="submit" class="btn btn-primary">Update Profile</button>
 		<button type="button" class="btn btn-primary" id="nvm-edit-profile">Nevermind...</button>
-		<button type="button" class="btn btn-primary" id="change-password">Change Password</button>
-		<button type="button" class="btn btn-primary" id="delete-profile">Delete Profile</button>
+		<button type="button" class="btn btn-primary change-password" id="change-password">Change Password</button>
+		<a type="button" class="btn btn-primary" id="delete-profile" href="/delete-user">Delete Profile</button>
   </form>
+  <div class="change-password-box">
+		<form action="/change-password" method="POST">
+			<input type="password" class="new_password" name="new_password">
+			<button type="submit" class="btn btn-primary">Change</button>
+			<button type="button" class="btn btn-primary nvm-change-password">Nevermind</button>
+		</form>
+	</div>
 </div>
 
 <% end %>

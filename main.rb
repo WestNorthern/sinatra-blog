@@ -118,6 +118,15 @@ post '/edit-post' do
 	erb :home
 end
 
+post '/change-password' do
+	@user = current_user
+	puts "This is what you're looking for"
+	p params
+	@user.update(password: params[:new_password])
+	@user.save
+	redirect '/profile'
+end
+
 
 post '/save-post' do
 	@user = current_user
@@ -155,5 +164,12 @@ post '/search_for_user' do
 	puts "here are the params: #{params.inspect}"
 	@users = User.where('name LIKE ?', "%#{params[:search_term]}%")
 	erb :search_results, layout: false
+end
+
+get '/delete-user' do
+	@user = current_user
+	@user.destroy
+	session[:user_id] = nil
+	redirect '/login'
 end
 
