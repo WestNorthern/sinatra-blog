@@ -18,7 +18,9 @@
 	<div class="profile-name"><%= @user.name %></div>
 	<br><br>
 	<p>You have been a part of Interrobang since <%= @user.created_at.to_formatted_s(:short) %></p>
+	<% if @user.posts.last != nil %>
 	<p>Your last post was at <%= @user.posts.last.created_at.to_formatted_s(:short) %></p>
+	<% end %>
 	<hr>
 	<div class="bio-display"><%= @user.bio %></div>
 	<button class="btn btn-primary" id="edit-profile-button">Edit Profile</button>
